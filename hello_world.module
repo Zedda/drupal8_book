@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * A basic Drupal 8 Hello World Module.
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function hello_world_permission() {
+  $permissions = array(
+    'view hello world' => array(
+      'title' => t('View Hello World module'),
+      'description' => t('View the Hello World module page.'),
+    ),
+  );
+  return $permissions;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function hello_world_primary_page_theme() {
+  return array(
+    'hello_world_primary_page' => array(
+      'function' => 'theme_hello_world_primary_page',
+      'variables' => array(
+        'items' => NULL,
+      ),
+      'file' => 'hello_world.theme.inc',
+    ),
+  );
+}
